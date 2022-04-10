@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Server=DESKTOP-EL3J9QR;Database=MyDB;Trusted_Connection=True;"
+    }
+  }
+}

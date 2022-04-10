@@ -1,0 +1,88 @@
+﻿@model EcommerceWebApp.Models.PaymentModel
+@{
+    ViewData["Title"] = "Payment";
+}
+
+@{
+    string message = (string) ViewData["message"] ?? string.Empty;
+}
+
+
+<script type="text/javascript">
+    var message = '@message';
+    if (message)
+        alert("Try Again!")
+</script>
+
+<div class="Card">
+    <div class="card-body">
+
+        <div class="card-header">
+            <h4> Checkout </h4>
+        </div>
+        <form method="post" asp-controller="Home" asp-action="Buy">
+            <div>
+                <div class="m-1">
+                    <div class="form-check">
+                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                        <label class="form-check-label" for="credit">Credit card</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                        <label class="form-check-label" for="debit">Debit card</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                        <label class="form-check-label" for="paypal">PayPal</label>
+                    </div>
+                </div>
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <label asp-for="Cardholder_Name" class="form-label">Name on card</label>
+                        <input type="text" class="form-control" asp-for="Cardholder_Name" placeholder="" required="">
+                        <small class="text-muted">Full name as displayed on card</small>
+                        <div class="invalid-feedback">
+                            Name on card is required
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="CardNumber" class="form-label">Credit card number</label>
+                        <input type="text" class="form-control" asp-for="CardNumber" required="">
+                        <small class="text-muted">10 digit card number </small>
+                        <div class="invalid-feedback">
+                            Credit card number is required
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="ExpiryDate" class="form-label">Expiration</label>
+                        <input type="text" class="form-control" asp-for="ExpiryDate" placeholder="" required="">
+                        <small class="text-muted">4 digit </small>
+                        <div class="invalid-feedback">
+                            Expiration date required
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" asp-for="Cvv" placeholder="" required="">
+                        <div class="invalid-feedback">
+                            Security code required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="w-100 btn btn-primary btn-lg my-4" type="submit">Buy</button>
+            </div>
+        </form>
+
+        @if (message != null)
+        {
+            <div>@message </div>
+        }
+
+    </div>
+</div>
+

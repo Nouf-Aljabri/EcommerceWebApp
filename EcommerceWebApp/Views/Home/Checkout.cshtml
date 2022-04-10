@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+@{
+    var tax = float.Parse(ViewData["tax"].ToString());
+    var premium = float.Parse(ViewData["premium"].ToString());
+    var total = tax + premium;
+
+}
+
+
+
+<div class="container ">
+
+    <div class="card m-5 w-75">
+        <div class="card-body">
+            <p class="mb-2 text-muted">Premium : @premium </p>
+            <p class="mb-2 text-muted">Tax : @tax </p>
+            <div class="w-100 m-2"><hr></div>
+            <h5 class="my-4">Total Price : @total SAR</h5>
+            <a asp-area="" asp-controller="Home" asp-action="Payment" >Continue to checkout</a>
+        </div>
+    </div>
+</div>
+
+
+

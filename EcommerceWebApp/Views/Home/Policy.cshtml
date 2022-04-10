@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Policy";
+}
+
+
+@{
+    var PolicyNumber = TempData["policy_number"].ToString();
+}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .confirm {
+        color: #636363;
+        width: 325px;
+        font-size: 14px;
+        border: 2px solid rgba(0,0,0,.08);
+    }
+    .card-footer, .card-header {
+        background-color: white;
+    }
+    .confirm .card {
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+    .confirm .card-header {
+        border-bottom: none;
+        position: relative;
+    }
+    .confirm h4 {
+        text-align: center;
+        font-size: 26px;
+        margin: 30px 0 -15px;
+    }
+    .confirm .form-control,
+    .confirm .btn {
+        min-height: 40px;
+        border-radius: 3px;
+    }
+    .confirm .card-footer {
+        border: none;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+
+    .confirm .icon-box {
+        color: #fff;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: -30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        z-index: 9;
+        background: #82ce34;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .confirm .icon-box i {
+        font-size: 35px;
+        position: relative;
+        top: 3px;
+    }
+    </style>
+
+<div class="m-5">
+    <div class="row">
+        <div class="confirm mx-auto w-50">
+            <div class="card ">
+                <div class="card-header ">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE876;</i>
+                    </div>
+                    <h4 class="modal-title w-100">Successful!</h4>
+                </div>
+                <div class="card-body">
+                    <p class="text-center">Your Policy Number :</p>
+                    <p class="text-center">  @PolicyNumber</p>
+                </div>
+                <div class="card-footer">
+                    
+                    <a class="btn btn-success w-50" asp-action="index" asp-controller="Home">OK</a>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
